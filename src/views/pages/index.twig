@@ -1,5 +1,13 @@
 {% extends "layouts.master" %}
 
 {% block content %}
-  {% component home %}
+  {% set component = {} %}
+
+  {% include "components/home/coffee-hero.twig" %}
+  {% include "components/home/coffee-categories.twig" %}
+  {% include "components/home/roast-finder.twig" %}
+  {% include "components/home/coffee-featured-products.twig" %}
+  {% include "components/home/coffee-subscription.twig" %}
+  {% include "components/home/coffee-trust-bar.twig" %}
+  {% include "components/home/coffee-testimonials.twig" %}
 {% endblock %}
