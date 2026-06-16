@@ -1,13 +1,489 @@
 {% extends "layouts.master" %}
 
 {% block content %}
-  {% set component = {} %}
+<style>
+  .rp-page{
+    direction:rtl;
+    font-family:inherit;
+    background:#F7F0E6;
+    color:#1E1A17;
+  }
 
-  {% include "components/home/coffee-hero.twig" %}
-  {% include "components/home/coffee-categories.twig" %}
-  {% include "components/home/roast-finder.twig" %}
-  {% include "components/home/coffee-featured-products.twig" %}
-  {% include "components/home/coffee-subscription.twig" %}
-  {% include "components/home/coffee-trust-bar.twig" %}
-  {% include "components/home/coffee-testimonials.twig" %}
+  .rp-container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 18px;
+  }
+
+  .rp-hero{
+    position:relative;
+    overflow:hidden;
+    min-height:520px;
+    display:flex;
+    align-items:center;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(185,133,69,.25), transparent 28%),
+      linear-gradient(135deg,#3B2417 0%,#2A1710 48%,#B98545 130%);
+    color:#fff;
+  }
+
+  .rp-hero::after{
+    content:"";
+    position:absolute;
+    inset:auto -90px -160px auto;
+    width:520px;
+    height:520px;
+    border-radius:50%;
+    background:rgba(247,240,230,.11);
+  }
+
+  .rp-hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:40px;
+    align-items:center;
+    padding:80px 0;
+  }
+
+  .rp-label{
+    display:inline-flex;
+    padding:9px 18px;
+    border-radius:999px;
+    background:rgba(185,133,69,.18);
+    color:#F4D3A8;
+    font-weight:700;
+    margin-bottom:18px;
+  }
+
+  .rp-title{
+    font-size:56px;
+    line-height:1.25;
+    margin:0 0 20px;
+    font-weight:800;
+  }
+
+  .rp-text{
+    max-width:560px;
+    font-size:20px;
+    line-height:1.9;
+    color:#F7F0E6;
+    margin:0 0 30px;
+  }
+
+  .rp-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .rp-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:50px;
+    padding:0 26px;
+    border-radius:999px;
+    font-weight:800;
+    text-decoration:none;
+    transition:.2s ease;
+  }
+
+  .rp-btn-primary{
+    background:#B98545;
+    color:#fff;
+  }
+
+  .rp-btn-secondary{
+    border:1px solid rgba(255,255,255,.45);
+    color:#fff;
+  }
+
+  .rp-cup{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:42px;
+    padding:42px;
+    text-align:center;
+    box-shadow:0 24px 70px rgba(0,0,0,.22);
+  }
+
+  .rp-cup-icon{
+    width:260px;
+    height:260px;
+    margin:auto;
+    border-radius:50%;
+    background:#F7F0E6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#3B2417;
+    font-size:112px;
+    box-shadow:inset 0 0 0 10px rgba(185,133,69,.18);
+  }
+
+  .rp-section{
+    padding:70px 0;
+  }
+
+  .rp-section-head{
+    text-align:center;
+    margin-bottom:34px;
+  }
+
+  .rp-section-head h2{
+    font-size:36px;
+    margin:0 0 12px;
+    color:#3B2417;
+    font-weight:800;
+  }
+
+  .rp-section-head p{
+    margin:0;
+    color:#7B6A5C;
+    font-size:18px;
+  }
+
+  .rp-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+
+  .rp-card{
+    background:#fff;
+    border:1px solid #E7D8C8;
+    border-radius:24px;
+    padding:24px;
+    box-shadow:0 14px 40px rgba(59,36,23,.08);
+  }
+
+  .rp-card-icon{
+    width:68px;
+    height:68px;
+    border-radius:20px;
+    background:#F7F0E6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:18px;
+  }
+
+  .rp-card h3{
+    margin:0 0 8px;
+    font-size:21px;
+    color:#3B2417;
+    font-weight:800;
+  }
+
+  .rp-card p{
+    margin:0;
+    color:#7B6A5C;
+    line-height:1.7;
+  }
+
+  .rp-products{
+    background:#fff8ef;
+  }
+
+  .rp-product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+
+  .rp-product{
+    overflow:hidden;
+    padding:0;
+  }
+
+  .rp-product-img{
+    height:220px;
+    background:
+      radial-gradient(circle at center, rgba(185,133,69,.35), transparent 34%),
+      linear-gradient(135deg,#F7F0E6,#EAC99D);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:86px;
+  }
+
+  .rp-product-body{
+    padding:22px;
+  }
+
+  .rp-badge{
+    display:inline-flex;
+    background:#6D7454;
+    color:#fff;
+    border-radius:999px;
+    padding:5px 12px;
+    font-size:13px;
+    margin-bottom:12px;
+  }
+
+  .rp-price{
+    color:#B98545;
+    font-weight:900;
+    font-size:22px;
+    margin-top:14px;
+  }
+
+  .rp-taste{
+    background:#3B2417;
+    color:#fff;
+  }
+
+  .rp-taste .rp-section-head h2,
+  .rp-taste .rp-section-head p{
+    color:#fff;
+  }
+
+  .rp-chip-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+
+  .rp-chip{
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:999px;
+    padding:13px 22px;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-weight:700;
+  }
+
+  .rp-subscribe{
+    background:linear-gradient(135deg,#B98545,#3B2417);
+    color:#fff;
+    border-radius:34px;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:24px;
+    align-items:center;
+  }
+
+  .rp-subscribe h2{
+    margin:0 0 12px;
+    font-size:34px;
+    font-weight:900;
+  }
+
+  .rp-subscribe p{
+    margin:0;
+    color:#F7F0E6;
+    font-size:18px;
+    line-height:1.8;
+  }
+
+  .rp-trust{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+  }
+
+  .rp-trust-item{
+    text-align:center;
+    background:#fff;
+    border:1px solid #E7D8C8;
+    border-radius:20px;
+    padding:22px 14px;
+    color:#3B2417;
+    font-weight:800;
+  }
+
+  @media(max-width:900px){
+    .rp-hero-grid,
+    .rp-subscribe{
+      grid-template-columns:1fr;
+    }
+
+    .rp-grid,
+    .rp-product-grid,
+    .rp-trust{
+      grid-template-columns:1fr 1fr;
+    }
+
+    .rp-title{
+      font-size:38px;
+    }
+  }
+
+  @media(max-width:540px){
+    .rp-grid,
+    .rp-product-grid,
+    .rp-trust{
+      grid-template-columns:1fr;
+    }
+
+    .rp-section{
+      padding:46px 0;
+    }
+
+    .rp-hero-grid{
+      padding:56px 0;
+    }
+
+    .rp-cup-icon{
+      width:190px;
+      height:190px;
+      font-size:82px;
+    }
+  }
+</style>
+
+<main class="rp-page">
+
+  <section class="rp-hero">
+    <div class="rp-container rp-hero-grid">
+      <div>
+        <span class="rp-label">قهوة مختصة محمصة بعناية</span>
+        <h1 class="rp-title">ثيم احترافي لمتاجر القهوة على سلة</h1>
+        <p class="rp-text">
+          واجهة دافئة وفاخرة لعرض البن المختص، أدوات التحضير، الباقات،
+          والاشتراكات الشهرية بتجربة شراء واضحة وسريعة.
+        </p>
+        <div class="rp-actions">
+          <a href="/categories" class="rp-btn rp-btn-primary">تسوق القهوة</a>
+          <a href="/products" class="rp-btn rp-btn-secondary">اكتشف المنتجات</a>
+        </div>
+      </div>
+
+      <div class="rp-cup">
+        <div class="rp-cup-icon">☕</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rp-section">
+    <div class="rp-container">
+      <div class="rp-section-head">
+        <h2>أقسام تناسب متجر القهوة</h2>
+        <p>اعرض منتجاتك بطريقة منظمة تساعد العميل على الاختيار.</p>
+      </div>
+
+      <div class="rp-grid">
+        <div class="rp-card">
+          <div class="rp-card-icon">🫘</div>
+          <h3>البن المختص</h3>
+          <p>عرض البن حسب المنشأ، المعالجة، ودرجة التحميص.</p>
+        </div>
+
+        <div class="rp-card">
+          <div class="rp-card-icon">⚗️</div>
+          <h3>أدوات التحضير</h3>
+          <p>قسم خاص لأدوات V60، الفلاتر، المطاحن، والأجهزة.</p>
+        </div>
+
+        <div class="rp-card">
+          <div class="rp-card-icon">🎁</div>
+          <h3>الباقات والهدايا</h3>
+          <p>تصميم مناسب لعرض الباقات الجاهزة والهدايا.</p>
+        </div>
+
+        <div class="rp-card">
+          <div class="rp-card-icon">📦</div>
+          <h3>الاشتراكات</h3>
+          <p>قسم مخصص للترويج لاشتراكات القهوة الشهرية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rp-section rp-taste">
+    <div class="rp-container">
+      <div class="rp-section-head">
+        <h2>اختيار القهوة حسب الذوق</h2>
+        <p>ساعد العميل على اختيار القهوة المناسبة له بسرعة.</p>
+      </div>
+
+      <div class="rp-chip-wrap">
+        <span class="rp-chip">فاكهية</span>
+        <span class="rp-chip">شوكولاتية</span>
+        <span class="rp-chip">متوازنة</span>
+        <span class="rp-chip">تحميص فاتح</span>
+        <span class="rp-chip">تحميص متوسط</span>
+        <span class="rp-chip">إسبريسو</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="rp-section rp-products">
+    <div class="rp-container">
+      <div class="rp-section-head">
+        <h2>منتجات قهوة مميزة</h2>
+        <p>بطاقات منتجات أنيقة ومناسبة لمتاجر البن المختص.</p>
+      </div>
+
+      <div class="rp-product-grid">
+        <div class="rp-card rp-product">
+          <div class="rp-product-img">☕</div>
+          <div class="rp-product-body">
+            <span class="rp-badge">الأكثر طلباً</span>
+            <h3>قهوة إثيوبيا قوجي</h3>
+            <p>إيحاءات فاكهية وزهرية مناسبة للتحضير المقطر.</p>
+            <div class="rp-price">72 ر.س</div>
+          </div>
+        </div>
+
+        <div class="rp-card rp-product">
+          <div class="rp-product-img">🫘</div>
+          <div class="rp-product-body">
+            <span class="rp-badge">وصل حديثاً</span>
+            <h3>قهوة كولومبيا</h3>
+            <p>نكهة متوازنة بإيحاءات الشوكولاتة والمكسرات.</p>
+            <div class="rp-price">68 ر.س</div>
+          </div>
+        </div>
+
+        <div class="rp-card rp-product">
+          <div class="rp-product-img">📦</div>
+          <div class="rp-product-body">
+            <span class="rp-badge">اشتراك شهري</span>
+            <h3>صندوق القهوة الشهري</h3>
+            <p>اختيارات شهرية من البن الطازج تصل إلى باب العميل.</p>
+            <div class="rp-price">120 ر.س</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rp-section">
+    <div class="rp-container">
+      <div class="rp-subscribe">
+        <div>
+          <h2>لا تنفد قهوتك المفضلة مرة أخرى</h2>
+          <p>
+            روّج لاشتراكات القهوة الشهرية بطريقة واضحة ومباشرة
+            لزيادة الطلبات المتكررة.
+          </p>
+        </div>
+        <a href="/products" class="rp-btn rp-btn-primary">ابدأ الاشتراك</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rp-section">
+    <div class="rp-container">
+      <div class="rp-section-head">
+        <h2>مزايا تزيد ثقة العميل</h2>
+        <p>اعرض نقاط القوة المهمة قبل قرار الشراء.</p>
+      </div>
+
+      <div class="rp-trust">
+        <div class="rp-trust-item">تحميص طازج</div>
+        <div class="rp-trust-item">دفع آمن</div>
+        <div class="rp-trust-item">شحن سريع</div>
+        <div class="rp-trust-item">تغليف فاخر</div>
+      </div>
+    </div>
+  </section>
+
+</main>
 {% endblock %}
