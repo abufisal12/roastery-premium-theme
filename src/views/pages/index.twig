@@ -1,17 +1,5 @@
-{% extends 'layouts/master.twig' %}
+{% extends "layouts.master" %}
 
 {% block content %}
-  {% include 'components/home/coffee-hero.twig' %}
-  {% include 'components/home/coffee-categories.twig' %}
-  {% include 'components/home/roast-finder.twig' %}
-  {% include 'components/home/coffee-featured-products.twig' %}
-  {% include 'components/home/coffee-subscription.twig' %}
-  {% include 'components/home/coffee-trust-bar.twig' %}
-  {% include 'components/home/coffee-testimonials.twig' %}
-
-  {#
-    عند إدارة الصفحة من Salla Partners Portal يمكن إظهار مكونات Twilight المسجلة من twilight.json.
-    اترك السطر التالي مفعل إذا رغبت أن تظهر المكونات المدارة من لوحة سلة أيضاً.
-  #}
   {% component home %}
 {% endblock %}
