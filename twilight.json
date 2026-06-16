@@ -1,0 +1,221 @@
+{
+  "version": "1.0.0",
+  "theme_name": "Roastery Premium",
+  "repo_url": "https://github.com/YOUR_USERNAME/roastery-premium-theme",
+  "support_url": "mailto:support@example.com",
+  "settings": [
+    {
+      "type": "string",
+      "id": "brand_primary",
+      "label": "لون القهوة الأساسي",
+      "format": "color",
+      "value": "#3B2417"
+    },
+    {
+      "type": "string",
+      "id": "brand_accent",
+      "label": "اللون الذهبي / النحاسي",
+      "format": "color",
+      "value": "#B98545"
+    },
+    {
+      "type": "string",
+      "id": "brand_cream",
+      "label": "لون الخلفية الكريمي",
+      "format": "color",
+      "value": "#F7F0E6"
+    },
+    {
+      "type": "boolean",
+      "id": "sticky_header",
+      "label": "تفعيل الهيدر الثابت",
+      "format": "switch",
+      "selected": true
+    },
+    {
+      "type": "string",
+      "id": "whatsapp_number",
+      "label": "رقم الواتساب بدون +",
+      "format": "text",
+      "value": "966500000000"
+    },
+    {
+      "type": "string",
+      "id": "placeholder",
+      "format": "hidden",
+      "value": "images/placeholder-coffee.svg"
+    }
+  ],
+  "features": [
+    "component-slider",
+    "component-store-features",
+    "component-latest-products",
+    "component-testimonials"
+  ],
+  "components": [
+    {
+      "name": "coffee-hero",
+      "title": "بانر القهوة الرئيسي",
+      "icon": "sicon-image",
+      "path": "home.coffee-hero",
+      "fields": [
+        {
+          "id": "eyebrow",
+          "type": "string",
+          "label": "النص العلوي",
+          "value": "قهوة مختصة محمصة بعناية"
+        },
+        {
+          "id": "title",
+          "type": "string",
+          "label": "العنوان الرئيسي",
+          "value": "قهوتك اليومية بطابع فاخر"
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "textarea",
+          "label": "الوصف",
+          "value": "اكتشف أجود أنواع البن المختص، محمص طازجاً، ومجهز ليصل إليك بأفضل نكهة."
+        },
+        {
+          "id": "image",
+          "type": "string",
+          "format": "image",
+          "label": "صورة الخلفية",
+          "value": "images/hero-coffee.svg"
+        },
+        {
+          "id": "primary_link",
+          "type": "string",
+          "label": "رابط الزر الرئيسي",
+          "value": "/categories"
+        },
+        {
+          "id": "secondary_link",
+          "type": "string",
+          "label": "رابط الزر الثانوي",
+          "value": "/products"
+        }
+      ]
+    },
+    {
+      "name": "coffee-categories",
+      "title": "تصنيفات القهوة",
+      "icon": "sicon-grid",
+      "path": "home.coffee-categories",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "label": "عنوان القسم",
+          "value": "تسوق حسب احتياجك"
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "textarea",
+          "label": "وصف القسم",
+          "value": "اختر من البن، أدوات التحضير، الاشتراكات، والباقات المختارة."
+        }
+      ]
+    },
+    {
+      "name": "roast-finder",
+      "title": "اختيار القهوة حسب الذوق",
+      "icon": "sicon-filter",
+      "path": "home.roast-finder",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "label": "عنوان القسم",
+          "value": "اختر قهوتك حسب ذوقك"
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "textarea",
+          "label": "وصف القسم",
+          "value": "فلترة سريعة تساعد العميل يصل للنكهة المناسبة له."
+        }
+      ]
+    },
+    {
+      "name": "coffee-featured-products",
+      "title": "منتجات القهوة المميزة",
+      "icon": "sicon-star",
+      "path": "home.coffee-featured-products",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "label": "عنوان القسم",
+          "value": "الأكثر طلباً لعشاق القهوة"
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "textarea",
+          "label": "وصف القسم",
+          "value": "مجموعة مختارة من البن والأدوات بتصميم بطاقات واضح ومحفز للشراء."
+        }
+      ]
+    },
+    {
+      "name": "coffee-subscription",
+      "title": "اشتراك القهوة الشهري",
+      "icon": "sicon-calendar",
+      "path": "home.coffee-subscription",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "label": "العنوان",
+          "value": "لا تنفد قهوتك المفضلة مرة أخرى"
+        },
+        {
+          "id": "subtitle",
+          "type": "string",
+          "format": "textarea",
+          "label": "الوصف",
+          "value": "اختر ذوقك، ونحن نرسل لك قهوة طازجة بانتظام."
+        },
+        {
+          "id": "link",
+          "type": "string",
+          "label": "رابط الاشتراك",
+          "value": "/products"
+        }
+      ]
+    },
+    {
+      "name": "coffee-trust-bar",
+      "title": "مزايا المتجر",
+      "icon": "sicon-shield",
+      "path": "home.coffee-trust-bar",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "label": "عنوان القسم",
+          "value": "تجربة شراء تليق بقهوة مختصة"
+        }
+      ]
+    },
+    {
+      "name": "coffee-testimonials",
+      "title": "آراء العملاء",
+      "icon": "sicon-chat",
+      "path": "home.coffee-testimonials",
+      "fields": [
+        {
+          "id": "title",
+          "type": "string",
+          "label": "عنوان القسم",
+          "value": "آراء عملائنا"
+        }
+      ]
+    }
+  ]
+}

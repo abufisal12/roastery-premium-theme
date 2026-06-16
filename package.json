@@ -1,0 +1,24 @@
+{
+  "name": "roastery-premium-theme",
+  "version": "1.0.0",
+  "description": "Professional Arabic RTL Salla Twilight theme for specialty coffee stores.",
+  "private": true,
+  "scripts": {
+    "salla:login": "salla login",
+    "salla:preview": "salla theme preview",
+    "salla:publish": "salla theme publish",
+    "theme:push": "bash scripts/push-to-github.sh"
+  },
+  "devDependencies": {
+    "@salla.sa/cli": "latest"
+  },
+  "keywords": [
+    "salla",
+    "twilight",
+    "coffee",
+    "theme",
+    "rtl"
+  ],
+  "author": "M A",
+  "license": "UNLICENSED"
+}

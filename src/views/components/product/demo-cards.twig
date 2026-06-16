@@ -1,0 +1,23 @@
+{% set demo_products = [
+  {name: 'بن كولومبي مختص', subtitle: 'شوكولاتة، كراميل، مكسرات', price: '68 ر.س', image: 'images/product-colombia.svg', tag: 'الأكثر مبيعاً'},
+  {name: 'بن إثيوبي فاخر', subtitle: 'فواكه حمراء، زهور، حموضة لطيفة', price: '74 ر.س', image: 'images/product-ethiopia.svg', tag: 'وصل حديثاً'},
+  {name: 'مجموعة التقطير', subtitle: 'V60 مع فلاتر وقمع تحضير', price: '129 ر.س', image: 'images/product-brew-kit.svg', tag: 'باقة'},
+  {name: 'اشتراك شهري', subtitle: 'قهوة طازجة تصلك كل شهر', price: '99 ر.س', image: 'images/product-subscription.svg', tag: 'اشتراك'}
+] %}
+
+{% for item in demo_products %}
+  <article class="rp-product-card">
+    <a class="rp-product-image-wrap" href="/products">
+      <img src="{{ item.image|asset }}" alt="{{ item.name }}">
+      <span class="rp-product-tag">{{ item.tag }}</span>
+    </a>
+    <div class="rp-product-body">
+      <a href="/products" class="rp-product-name">{{ item.name }}</a>
+      <p class="rp-product-meta">{{ item.subtitle }}</p>
+      <div class="rp-product-footer">
+        <strong>{{ item.price }}</strong>
+        <a href="/products" class="rp-small-cart">أضف</a>
+      </div>
+    </div>
+  </article>
+{% endfor %}

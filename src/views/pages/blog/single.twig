@@ -1,0 +1,9 @@
+{% extends 'layouts/master.twig' %}
+
+{% block content %}
+<article class="rp-section rp-container rp-page-content">
+  <span class="rp-eyebrow">مدونة القهوة</span>
+  <h1>{{ article.title|default('عنوان المقال') }}</h1>
+  <div>{{ article.content|default('محتوى المقال يظهر هنا.')|raw }}</div>
+</article>
+{% endblock %}

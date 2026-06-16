@@ -1,0 +1,50 @@
+{% extends 'layouts/master.twig' %}
+
+{% block content %}
+<section class="rp-product-page rp-section">
+  <div class="rp-container rp-product-layout">
+    <div class="rp-product-gallery">
+      {% if product.images is defined and product.images|length %}
+        <img class="rp-product-main-image" src="{{ product.images[0].url }}" alt="{{ product.name }}">
+      {% else %}
+        <img class="rp-product-main-image" src="{{ 'images/placeholder-coffee.svg'|asset }}" alt="{{ product.name|default('منتج قهوة') }}">
+      {% endif %}
+    </div>
+
+    <article class="rp-product-info">
+      <span class="rp-badge">قهوة مختصة</span>
+      <h1 class="rp-product-title">{{ product.name|default('بن مختص طازج') }}</h1>
+      <p class="rp-product-price">
+        {% if product.price is defined %}
+          {{ product.price|money }}
+        {% else %}
+          السعر يظهر من سلة
+        {% endif %}
+      </p>
+      <p class="rp-product-desc">
+        {{ product.description|default('قهوة متوازنة بنكهات دافئة ولمسة شوكولاتية، مناسبة لمحبي القهوة اليومية الغنية.')|raw }}
+      </p>
+
+      <div class="rp-coffee-specs" aria-label="تفاصيل القهوة">
+        <div><strong>الدولة</strong><span>{{ product.metadata.origin|default('حسب المنتج') }}</span></div>
+        <div><strong>المعالجة</strong><span>{{ product.metadata.process|default('مغسولة / طبيعية') }}</span></div>
+        <div><strong>التحميص</strong><span>{{ product.metadata.roast|default('متوسط') }}</span></div>
+        <div><strong>مناسبة لـ</strong><span>{{ product.metadata.brew|default('V60، إسبريسو، كولد برو') }}</span></div>
+      </div>
+
+      <div class="rp-product-actions">
+        {% if product is defined %}
+          <salla-add-product-button product-id="{{ product.id }}" class="rp-btn rp-btn-primary">
+            أضف للسلة
+          </salla-add-product-button>
+        {% else %}
+          <button class="rp-btn rp-btn-primary" type="button">أضف للسلة</button>
+        {% endif %}
+        <a class="rp-btn rp-btn-outline" href="https://wa.me/{{ theme.settings.get('whatsapp_number')|default('966500000000') }}" target="_blank" rel="noopener">
+          اسألنا عن الطحن المناسب
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}

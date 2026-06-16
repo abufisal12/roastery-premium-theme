@@ -1,0 +1,20 @@
+{% set hero_image = component.image|default('images/hero-coffee.svg') %}
+<section class="rp-hero" style="--hero-image: url('{{ hero_image|asset }}');">
+  <div class="rp-container rp-hero-inner">
+    <div class="rp-hero-content">
+      <span class="rp-eyebrow">{{ component.eyebrow|default('قهوة مختصة محمصة بعناية') }}</span>
+      <h1>{{ component.title|default('قهوتك اليومية بطابع فاخر') }}</h1>
+      <p>{{ component.subtitle|default('اكتشف أجود أنواع البن المختص، محمص طازجاً، ومجهز ليصل إليك بأفضل نكهة.') }}</p>
+      <div class="rp-hero-actions">
+        <a class="rp-btn rp-btn-primary" href="{{ component.primary_link|default('/categories') }}">تسوق القهوة</a>
+        <a class="rp-btn rp-btn-ghost" href="{{ component.secondary_link|default('/products') }}">اكتشف المنتجات</a>
+      </div>
+    </div>
+
+    <div class="rp-hero-card" aria-label="معلومات القهوة">
+      <span>تحميص اليوم</span>
+      <strong>بن كولومبي متوازن</strong>
+      <p>إيحاءات: شوكولاتة، كراميل، مكسرات</p>
+    </div>
+  </div>
+</section>

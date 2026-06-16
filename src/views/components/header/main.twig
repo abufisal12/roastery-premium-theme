@@ -1,0 +1,32 @@
+<header class="rp-header {{ theme.settings.get('sticky_header')|default(true) ? 'is-sticky' : '' }}" data-header>
+  <div class="rp-topbar">
+    <div class="rp-container rp-topbar-inner">
+      <span>تحميص طازج وشحن سريع داخل السعودية</span>
+      <a href="https://wa.me/{{ theme.settings.get('whatsapp_number')|default('966500000000') }}" target="_blank" rel="noopener">تواصل واتساب</a>
+    </div>
+  </div>
+
+  <div class="rp-container rp-header-inner">
+    <a class="rp-logo" href="/" aria-label="الرئيسية">
+      <span class="rp-logo-mark">☕</span>
+      <span class="rp-logo-text">{{ store.name|default('Roastery') }}</span>
+    </a>
+
+    <nav class="rp-nav" aria-label="القائمة الرئيسية" data-nav>
+      <a href="/">الرئيسية</a>
+      <a href="/categories">البن</a>
+      <a href="/products">أدوات القهوة</a>
+      <a href="/products">الاشتراكات</a>
+      <a href="/offers">العروض</a>
+      <a href="/p/about-us">من نحن</a>
+    </nav>
+
+    <div class="rp-header-actions">
+      <a class="rp-icon-link" href="/search" aria-label="البحث">بحث</a>
+      <a class="rp-icon-link" href="/cart" aria-label="السلة">السلة</a>
+      <button class="rp-menu-btn" type="button" aria-label="فتح القائمة" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

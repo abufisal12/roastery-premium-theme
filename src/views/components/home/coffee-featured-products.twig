@@ -1,0 +1,16 @@
+<section class="rp-section rp-featured">
+  <div class="rp-container">
+    <div class="rp-section-head rp-section-head-row">
+      <div>
+        <span class="rp-eyebrow">منتجات مميزة</span>
+        <h2>{{ component.title|default('الأكثر طلباً لعشاق القهوة') }}</h2>
+        <p>{{ component.subtitle|default('مجموعة مختارة من البن والأدوات بتصميم بطاقات واضح ومحفز للشراء.') }}</p>
+      </div>
+      <a class="rp-link" href="/products">عرض الكل</a>
+    </div>
+
+    <div class="rp-product-grid">
+      {% include 'components/product/demo-cards.twig' %}
+    </div>
+  </div>
+</section>

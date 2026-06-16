@@ -1,0 +1,41 @@
+<footer class="rp-footer">
+  <div class="rp-container rp-footer-grid">
+    <div>
+      <a class="rp-logo rp-footer-logo" href="/">
+        <span class="rp-logo-mark">☕</span>
+        <span class="rp-logo-text">{{ store.name|default('Roastery') }}</span>
+      </a>
+      <p>متجر قهوة مختصة يقدم بن طازج وأدوات تحضير مختارة بعناية لعشاق القهوة.</p>
+    </div>
+
+    <div>
+      <h3>روابط مهمة</h3>
+      <a href="/p/about-us">من نحن</a>
+      <a href="/p/shipping">الشحن والتوصيل</a>
+      <a href="/p/returns">الاستبدال والاسترجاع</a>
+      <a href="/contact">تواصل معنا</a>
+    </div>
+
+    <div>
+      <h3>تسوق</h3>
+      <a href="/categories">البن المختص</a>
+      <a href="/products">أدوات التقطير</a>
+      <a href="/products">المطاحن</a>
+      <a href="/offers">العروض والباقات</a>
+    </div>
+
+    <div>
+      <h3>النشرة البريدية</h3>
+      <p>احصل على ترشيحات البن والعروض الجديدة.</p>
+      <form class="rp-newsletter" action="#" method="post">
+        <input type="email" name="email" placeholder="بريدك الإلكتروني" aria-label="البريد الإلكتروني">
+        <button type="submit">اشتراك</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="rp-container rp-footer-bottom">
+    <span>© {{ 'now'|date('Y') }} {{ store.name|default('Roastery') }}. جميع الحقوق محفوظة.</span>
+    <span>دفع آمن • شحن سريع • تحميص طازج</span>
+  </div>
+</footer>

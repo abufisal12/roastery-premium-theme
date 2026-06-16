@@ -1,0 +1,26 @@
+<section class="rp-section rp-categories">
+  <div class="rp-container">
+    <div class="rp-section-head">
+      <span class="rp-eyebrow">تصنيفات المتجر</span>
+      <h2>{{ component.title|default('تسوق حسب احتياجك') }}</h2>
+      <p>{{ component.subtitle|default('اختر من البن، أدوات التحضير، الاشتراكات، والباقات المختارة.') }}</p>
+    </div>
+
+    <div class="rp-category-grid">
+      {% set categories = [
+        {title: 'بن مختص', desc: 'مختارات طازجة من أفضل المحاصيل', image: 'images/cat-beans.svg', link: '/categories'},
+        {title: 'أدوات التقطير', desc: 'V60، كيمكس، فلاتر وأدوات', image: 'images/cat-brew.svg', link: '/products'},
+        {title: 'مطاحن', desc: 'تحكم أفضل بدرجة الطحن', image: 'images/cat-grinder.svg', link: '/products'},
+        {title: 'باقات القهوة', desc: 'هدايا وتجارب تذوق جاهزة', image: 'images/cat-bundle.svg', link: '/offers'}
+      ] %}
+
+      {% for item in categories %}
+        <a class="rp-category-card" href="{{ item.link }}">
+          <img src="{{ item.image|asset }}" alt="{{ item.title }}">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.desc }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

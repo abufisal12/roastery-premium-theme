@@ -1,0 +1,24 @@
+name: Validate Theme Files
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON files
+        run: |
+          python -m json.tool twilight.json > /dev/null
+          python -m json.tool src/locales/ar.json > /dev/null
+          python -m json.tool src/locales/en.json > /dev/null
+      - name: Check required files
+        run: |
+          test -f twilight.json
+          test -f src/views/pages/index.twig
+          test -f src/assets/styles/app.css
+          test -f src/assets/js/app.js

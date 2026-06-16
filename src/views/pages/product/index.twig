@@ -1,0 +1,22 @@
+{% extends 'layouts/master.twig' %}
+
+{% block content %}
+<section class="rp-section">
+  <div class="rp-container">
+    <div class="rp-section-head">
+      <span class="rp-eyebrow">المنتجات</span>
+      <h1>كل ما تحتاجه لتحضير كوبك المثالي</h1>
+      <p>تصفح البن المختص، أدوات التحضير، المطاحن، والباقات.</p>
+    </div>
+    <div class="rp-product-grid">
+      {% if products is defined and products|length %}
+        {% for product in products %}
+          {% include 'components/product/card.twig' with {product: product} %}
+        {% endfor %}
+      {% else %}
+        {% include 'components/product/demo-cards.twig' %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

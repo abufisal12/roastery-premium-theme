@@ -1,0 +1,23 @@
+{
+  "roastery": {
+    "common": {
+      "shop_now": "Shop now",
+      "view_all": "View all",
+      "add_to_cart": "Add to cart",
+      "learn_more": "Learn more"
+    },
+    "home": {
+      "hero_title": "Premium coffee for your daily ritual",
+      "hero_subtitle": "Discover carefully roasted specialty coffee delivered fresh to your door.",
+      "categories_title": "Shop by need",
+      "featured_title": "Most loved by coffee lovers",
+      "subscription_title": "Never run out of your favorite coffee"
+    },
+    "product": {
+      "origin": "Origin",
+      "process": "Process",
+      "roast": "Roast",
+      "brew": "Best for"
+    }
+  }
+}

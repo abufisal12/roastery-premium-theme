@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="{{ store.locale|default('ar') }}" dir="{{ store.locale|default('ar') == 'en' ? 'ltr' : 'rtl' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="{{ theme.settings.get('brand_primary')|default('#3B2417') }}">
+  <title>{{ page.title|default(store.name|default('Roastery Premium')) }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="{{ 'styles/app.css'|asset }}">
+  {% block styles %}{% endblock %}
+</head>
+<body class="rp-theme">
+  {% include 'components/header/main.twig' %}
+
+  <main id="main-content" class="rp-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'components/footer/main.twig' %}
+
+  <button class="rp-scroll-top" type="button" aria-label="العودة للأعلى" data-scroll-top>
+    ↑
+  </button>
+
+  <script src="{{ 'js/app.js'|asset }}" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

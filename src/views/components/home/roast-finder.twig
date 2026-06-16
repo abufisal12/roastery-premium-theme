@@ -1,0 +1,17 @@
+<section class="rp-section rp-roast-finder">
+  <div class="rp-container rp-roast-box">
+    <div>
+      <span class="rp-eyebrow">دليل الاختيار</span>
+      <h2>{{ component.title|default('اختر قهوتك حسب ذوقك') }}</h2>
+      <p>{{ component.subtitle|default('فلترة سريعة تساعد العميل يصل للنكهة المناسبة له.') }}</p>
+    </div>
+    <div class="rp-chip-list">
+      <a href="/products?flavor=fruity">فاكهية</a>
+      <a href="/products?flavor=chocolate">شوكولاتية</a>
+      <a href="/products?roast=light">تحميص فاتح</a>
+      <a href="/products?roast=medium">تحميص متوسط</a>
+      <a href="/products?method=espresso">للإسبريسو</a>
+      <a href="/products?method=v60">للتقطير</a>
+    </div>
+  </div>
+</section>

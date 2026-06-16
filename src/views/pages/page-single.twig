@@ -1,0 +1,10 @@
+{% extends 'layouts/master.twig' %}
+
+{% block content %}
+<section class="rp-section">
+  <div class="rp-container rp-page-content">
+    <h1>{{ page.title|default('صفحة') }}</h1>
+    <div>{{ page.content|default('محتوى الصفحة يظهر هنا.')|raw }}</div>
+  </div>
+</section>
+{% endblock %}

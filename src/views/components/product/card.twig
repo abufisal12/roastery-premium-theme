@@ -1,0 +1,29 @@
+<article class="rp-product-card">
+  <a class="rp-product-image-wrap" href="{{ product.url|default('#') }}">
+    {% if product.image is defined %}
+      <img src="{{ product.image.url|default(product.image) }}" alt="{{ product.name }}">
+    {% else %}
+      <img src="{{ 'images/placeholder-coffee.svg'|asset }}" alt="{{ product.name|default('منتج قهوة') }}">
+    {% endif %}
+    <span class="rp-product-tag">{{ product.badge|default('مميز') }}</span>
+  </a>
+
+  <div class="rp-product-body">
+    <a href="{{ product.url|default('#') }}" class="rp-product-name">{{ product.name|default('بن مختص') }}</a>
+    <p class="rp-product-meta">{{ product.subtitle|default('إيحاءات: شوكولاتة، كراميل، مكسرات') }}</p>
+    <div class="rp-product-footer">
+      <strong>
+        {% if product.price is defined %}
+          {{ product.price|money }}
+        {% else %}
+          49 ر.س
+        {% endif %}
+      </strong>
+      {% if product.id is defined %}
+        <salla-add-product-button product-id="{{ product.id }}" class="rp-small-cart">أضف</salla-add-product-button>
+      {% else %}
+        <a href="/products" class="rp-small-cart">أضف</a>
+      {% endif %}
+    </div>
+  </div>
+</article>

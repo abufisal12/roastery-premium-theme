@@ -1,0 +1,15 @@
+<section class="rp-section rp-subscription">
+  <div class="rp-container rp-subscription-inner">
+    <div>
+      <span class="rp-eyebrow">اشتراك القهوة</span>
+      <h2>{{ component.title|default('لا تنفد قهوتك المفضلة مرة أخرى') }}</h2>
+      <p>{{ component.subtitle|default('اختر ذوقك، ونحن نرسل لك قهوة طازجة بانتظام.') }}</p>
+      <a class="rp-btn rp-btn-primary" href="{{ component.link|default('/products') }}">ابدأ الاشتراك</a>
+    </div>
+    <div class="rp-subscription-steps">
+      <div><strong>1</strong><span>اختر نكهتك</span></div>
+      <div><strong>2</strong><span>حدد التكرار</span></div>
+      <div><strong>3</strong><span>استلمها طازجة</span></div>
+    </div>
+  </div>
+</section>
